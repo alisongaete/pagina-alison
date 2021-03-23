@@ -1,0 +1,284 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&family=Roboto:wght@300;500;700&display=swap");
+:root {
+  --primary: #e5e5e5;
+  --secondary: #a5bbd3;
+  --dark: #021931;
+  --light: #fff;
+  --gray: #484848;
+}
+
+html {
+  font-size: 62.5%;
+}
+body {
+  margin: 0px;
+
+  font-family: "Roboto", sans-serif;
+}
+
+header {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--dark);
+  overflow: hidden;
+  position: relative;
+}
+.three {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+.presentacion {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: 2;
+}
+nav {
+  max-width: 1024px;
+  max-height: 50px;
+  width: 100%;
+  height: 50px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+nav p {
+  color: var(--primary);
+  font-size: 2.1rem;
+  font-weight: 700;
+}
+nav ul {
+  list-style: none;
+  width: 30%;
+  display: flex;
+  flex-flow: row wrap;
+  padding: 0;
+  margin: 0;
+  justify-content: space-between;
+}
+nav ul li {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+}
+nav ul li a {
+  text-decoration: none;
+  color: var(--primary);
+}
+nav ul li a:hover {
+  color: var(--light);
+}
+section.social {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translate(0, -50%);
+}
+section.social ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+section.social ul li {
+  margin-bottom: 30px;
+}
+section.social ul li a {
+  text-decoration: none;
+  color: var(--primary);
+  font-size: 2.8rem;
+}
+section.social ul li a:hover {
+  color: var(--light);
+}
+
+section.saludo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.caja {
+  width: 90%;
+  height: 80px;
+  border: 5px solid var(--gray);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: -1;
+}
+section.saludo h2 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 7.2rem;
+  font-weight: 500;
+}
+section.saludo h1 {
+  margin: 0;
+  color: var(--secondary);
+  font-size: 2.4rem;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+}
+.ver-proyectos {
+  height: 100px;
+  width: 300px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+.ver-proyectos p {
+  color: var(--primary);
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin: 0;
+}
+.ver-proyectos .linea {
+  width: 1px;
+  height: 50%;
+  background: white;
+}
+nav input {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 4;
+}
+
+.menu-mobile {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  z-index: 3;
+  width: 100%;
+  height: 100vh;
+  padding-top: 50px;
+  background: var(--primary);
+  transition-duration: 0.25s;
+}
+.menu-mobile ul {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+}
+.menu-mobile ul li {
+  margin: 20px 30px;
+}
+.menu-mobile ul li a {
+  color: var(--dark);
+  font-weight: 700;
+  font-size: 1.8rem;
+}
+nav input:checked ~ .menu-mobile {
+  left: 0;
+  transition-duration: 0.25s;
+}
+
+#menu__toggle {
+  opacity: 0;
+}
+#menu__toggle:checked ~ .menu__btn > span {
+  transform: rotate(45deg);
+}
+#menu__toggle:checked ~ .menu__btn > span::before {
+  top: 0;
+  transform: rotate(0);
+  background: var(--dark);
+}
+#menu__toggle:checked ~ .menu__btn > span::after {
+  top: 0;
+  transform: rotate(90deg);
+  background: var(--dark);
+}
+.menu__btn {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary);
+  transition-duration: 0.25s;
+}
+.menu__btn > span::before {
+  content: "";
+  top: -8px;
+}
+.menu__btn > span::after {
+  content: "";
+  top: 8px;
+}
+
+@media screen and (max-width: 1024px) {
+  nav ul.menu {
+    display: none;
+  }
+  .social {
+    display: none;
+  }
+  section.saludo {
+    width: 80%;
+    text-align: center;
+  }
+  .caja {
+    width: 80%;
+    height: 40px;
+  }
+  section.saludo h2 {
+    font-size: 4.2rem;
+  }
+  section.saludo h1 {
+    font-size: 1.4rem;
+  }
+  .ver-proyectos p {
+    font-size: 1.4rem;
+  }
+}
+@media screen and (min-width: 1024px) {
+  nav {
+    padding: 0px;
+  }
+  .mobile {
+    display: none;
+  }
+  .nav ul {
+    width: 60%;
+  }
+
+  .caja {
+    width: 80%;
+    height: 65px;
+  }
+  section.saludo h2 {
+    font-size: 6.2rem;
+  }
+  section.saludo h1 {
+    font-size: 2rem;
+  }
+  .ver-proyectos p {
+    font-size: 1.4rem;
+  }
+}
